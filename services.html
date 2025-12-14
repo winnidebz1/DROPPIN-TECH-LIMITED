@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - DropPin Ghana</title>
+    <meta name="description"
+        content="Explore DropPin's services: ride-hailing, dispatch services, and car rentals in Accra, Ghana.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .services-hero {
+            background: var(--gradient-dark);
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .services-hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .services-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .service-detail {
+            padding: 100px 0;
+        }
+
+        .service-detail:nth-child(even) {
+            background: var(--slate-gray);
+        }
+
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .service-detail:nth-child(even) .service-content {
+            direction: rtl;
+        }
+
+        .service-detail:nth-child(even) .service-content>* {
+            direction: ltr;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-text h2 {
+            margin-bottom: 1.5rem;
+            color: var(--electric-yellow);
+        }
+
+        .service-text p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .service-features {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-check {
+            width: 24px;
+            height: 24px;
+            background: var(--signal-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--charcoal-black);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .service-icon-large {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 968px) {
+            .service-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .service-detail:nth-child(even) .service-content {
+                direction: ltr;
+            }
+
+            .service-image {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">📍</span>
+                <span class="logo-text">DropPin</span>
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="services.html" class="nav-link active">Services</a>
+                <a href="for-drivers.html" class="nav-link">For Drivers</a>
+                <a href="car-rentals.html" class="nav-link">Car Rentals</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>From quick rides across town to long-term car rentals, DropPin has you covered with reliable,
+                tech-powered mobility solutions.</p>
+        </div>
+    </section>
+
+    <!-- Ride-Hailing Service -->
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-content" data-aos="fade-up">
+                <div class="service-image">
+                    <img src="images/ride-hailing.jpg" alt="DropPin Ride-Hailing Service">
+                </div>
+                <div class="service-text">
+                    <div class="service-icon-large">🚕</div>
+                    <h2>Ride-Hailing</h2>
+                    <p>Fast, safe, and affordable rides across Accra. Whether you're heading to work, meeting friends,
+                        or running errands, DropPin gets you there quickly and comfortably.</p>
+
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Instant driver matching</span>
+                        </div>
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Real-time GPS tracking</span>
+                        </div>
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Professional, vetted drivers</span>
+                        </div>
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Transparent pricing</span>
+                        </div>
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>24/7 customer support</span>
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="btn btn-primary">Book a Ride Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dispatch Services -->
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-content" data-aos="fade-up">
+                <div class="service-image">
+                    <img src="images/dispatch.jpg" alt="DropPin Dispatch Services">
+                </div>
+                <div class="service-text">
+                    <div class="service-icon-large">📡</div>
+                    <h2>Dispatch Services</h2>
+                    <p>Reliable vehicle dispatch for individuals and businesses. Perfect for corporate transport,
+                        deliveries, and scheduled pickups. Our smart dispatch system ensures efficiency and punctuality.
+                    </p>
+
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Corporate transport solutions</span>
+                        </div>
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Scheduled pickups & drop-offs</span>
+                        </div>
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Fleet management dashboard</span>
+                        </div>
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Bulk booking discounts</span>
+                        </div>
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Dedicated account manager</span>
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="btn btn-primary">Request Dispatch Service</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Rentals -->
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-content" data-aos="fade-up">
+                <div class="service-image">
+                    <img src="images/car-rental.jpg" alt="DropPin Car Rentals">
+                </div>
+                <div class="service-text">
+                    <div class="service-icon-large">🚗</div>
+                    <h2>Car Rentals</h2>
+                    <p>Short-term and long-term car rental options for every need. From economy cars to premium SUVs,
+                        our well-maintained fleet gives you the freedom to explore Accra on your own terms.</p>
+
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Daily, weekly & monthly rentals</span>
+                        </div>
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Wide range of vehicles</span>
+                        </div>
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Well-maintained, clean cars</span>
+                        </div>
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Flexible pickup & return</span>
+                        </div>
+                        <div class="service-feature">
+                            <span class="feature-check">✓</span>
+                            <span>Comprehensive insurance included</span>
+                        </div>
+                    </div>
+
+                    <a href="car-rentals.html" class="btn btn-primary">Browse Vehicles</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Strip -->
+    <section class="cta-strip">
+        <div class="container">
+            <h2>Need a custom mobility solution?</h2>
+            <a href="contact.html" class="btn btn-dark">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📍</span>
+                        <span class="logo-text">DropPin</span>
+                    </div>
+                    <p class="footer-tagline">Move Smarter. Ride Faster.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="for-drivers.html">For Drivers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Ride-Hailing</a></li>
+                        <li><a href="services.html">Dispatch</a></li>
+                        <li><a href="car-rentals.html">Car Rentals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>📍 Rookies Avenue, Tantra Hill<br>Greater Accra, Ghana</li>
+                        <li>📞 +233 544 066 322</li>
+                        <li>🕘 Monday – Sunday</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DropPin Tech Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

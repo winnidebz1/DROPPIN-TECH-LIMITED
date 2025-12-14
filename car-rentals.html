@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rentals - DropPin Ghana</title>
+    <meta name="description"
+        content="Rent a car in Accra with DropPin. Daily, weekly, and monthly rentals with flexible options and competitive rates.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .rentals-hero {
+            background: var(--gradient-dark);
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .rentals-hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .rentals-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .filter-section {
+            background: var(--slate-gray);
+            padding: 3rem 0;
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 2rem;
+            background: var(--charcoal-black);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: var(--pure-white);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--electric-yellow);
+            color: var(--charcoal-black);
+            border-color: var(--electric-yellow);
+        }
+
+        .vehicles-section {
+            padding: 100px 0;
+            background: var(--charcoal-black);
+        }
+
+        .vehicles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .vehicle-card {
+            background: var(--slate-gray);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--electric-yellow);
+        }
+
+        .vehicle-image {
+            width: 100%;
+            height: 250px;
+            background: var(--charcoal-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .vehicle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vehicle-placeholder {
+            font-size: 5rem;
+            opacity: 0.5;
+        }
+
+        .vehicle-info {
+            padding: 2rem;
+        }
+
+        .vehicle-category {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            background: var(--electric-yellow);
+            color: var(--charcoal-black);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .vehicle-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .vehicle-specs {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .vehicle-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--electric-yellow);
+        }
+
+        .price-period {
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        .rent-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--electric-yellow);
+            color: var(--charcoal-black);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .rent-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-yellow);
+        }
+
+        .calculator-section {
+            background: var(--slate-gray);
+            padding: 100px 0;
+        }
+
+        .calculator-container {
+            max-width: 700px;
+            margin: 3rem auto 0;
+            background: var(--charcoal-black);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 212, 0, 0.2);
+        }
+
+        .calc-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .calc-result {
+            text-align: center;
+            padding: 2rem;
+            background: var(--slate-gray);
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .calc-result h3 {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .calc-price {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--signal-green);
+        }
+
+        @media (max-width: 768px) {
+            .vehicles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calc-row {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">📍</span>
+                <span class="logo-text">DropPin</span>
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="for-drivers.html" class="nav-link">For Drivers</a>
+                <a href="car-rentals.html" class="nav-link active">Car Rentals</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="rentals-hero">
+        <div class="container">
+            <h1>Car Rentals</h1>
+            <p>Flexible rental options for every journey. Daily, weekly, or monthly - choose what works for you.</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterVehicles('all')">All Vehicles</button>
+                <button class="filter-btn" onclick="filterVehicles('economy')">Economy</button>
+                <button class="filter-btn" onclick="filterVehicles('standard')">Standard</button>
+                <button class="filter-btn" onclick="filterVehicles('premium')">Premium</button>
+                <button class="filter-btn" onclick="filterVehicles('suv')">SUV</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicles Grid -->
+    <section class="vehicles-section">
+        <div class="container">
+            <div class="vehicles-grid">
+                <!-- Economy Car 1 -->
+                <div class="vehicle-card" data-category="economy" data-aos="fade-up">
+                    <div class="vehicle-image">
+                        <img src="images/vehicle-economy.jpg" alt="Honda Fit">
+                    </div>
+                    <div class="vehicle-info">
+                        <span class="vehicle-category">Economy</span>
+                        <h3>Honda Fit</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span>👥</span>
+                                <span>4 Seats</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>⚙️</span>
+                                <span>Auto</span>
+                            </div>
+                        </div>
+                        <div class="vehicle-price">
+                            <div>
+                                <div class="price">GH₵ 150</div>
+                                <div class="price-period">per day</div>
+                            </div>
+                            <button class="rent-btn" onclick="location.href='contact.html'">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standard Car 1 -->
+                <div class="vehicle-card" data-category="standard" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vehicle-image">
+                        <img src="images/vehicle-sedan.jpg" alt="Toyota Corolla">
+                    </div>
+                    <div class="vehicle-info">
+                        <span class="vehicle-category">Standard</span>
+                        <h3>Toyota Corolla</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span>👥</span>
+                                <span>5 Seats</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>⚙️</span>
+                                <span>Auto</span>
+                            </div>
+                        </div>
+                        <div class="vehicle-price">
+                            <div>
+                                <div class="price">GH₵ 250</div>
+                                <div class="price-period">per day</div>
+                            </div>
+                            <button class="rent-btn" onclick="location.href='contact.html'">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standard Car 2 -->
+                <div class="vehicle-card" data-category="standard" data-aos="fade-up" data-aos-delay="200">
+                    <div class="vehicle-image">
+                        <img src="images/vehicle-standard.jpg" alt="Honda Accord">
+                    </div>
+                    <div class="vehicle-info">
+                        <span class="vehicle-category">Standard</span>
+                        <h3>Honda Accord</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span>👥</span>
+                                <span>5 Seats</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>⚙️</span>
+                                <span>Auto</span>
+                            </div>
+                        </div>
+                        <div class="vehicle-price">
+                            <div>
+                                <div class="price">GH₵ 280</div>
+                                <div class="price-period">per day</div>
+                            </div>
+                            <button class="rent-btn" onclick="location.href='contact.html'">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUV 1 -->
+                <div class="vehicle-card" data-category="suv" data-aos="fade-up">
+                    <div class="vehicle-image">
+                        <img src="images/vehicle-suv.jpg" alt="Toyota RAV4">
+                    </div>
+                    <div class="vehicle-info">
+                        <span class="vehicle-category">SUV</span>
+                        <h3>Toyota RAV4</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span>👥</span>
+                                <span>7 Seats</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>⚙️</span>
+                                <span>Auto</span>
+                            </div>
+                        </div>
+                        <div class="vehicle-price">
+                            <div>
+                                <div class="price">GH₵ 500</div>
+                                <div class="price-period">per day</div>
+                            </div>
+                            <button class="rent-btn" onclick="location.href='contact.html'">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Car 1 -->
+                <div class="vehicle-card" data-category="premium" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vehicle-image">
+                        <img src="images/vehicle-premium.jpg" alt="Lexus ES 350">
+                    </div>
+                    <div class="vehicle-info">
+                        <span class="vehicle-category">Premium</span>
+                        <h3>Lexus ES 350</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span>👥</span>
+                                <span>5 Seats</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>⚙️</span>
+                                <span>Auto</span>
+                            </div>
+                        </div>
+                        <div class="vehicle-price">
+                            <div>
+                                <div class="price">GH₵ 600</div>
+                                <div class="price-period">per day</div>
+                            </div>
+                            <button class="rent-btn" onclick="location.href='contact.html'">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUV 2 -->
+                <div class="vehicle-card" data-category="suv" data-aos="fade-up" data-aos-delay="200">
+                    <div class="vehicle-image">
+                        <img src="images/vehicle-suv2.jpg" alt="Honda CR-V">
+                    </div>
+                    <div class="vehicle-info">
+                        <span class="vehicle-category">SUV</span>
+                        <h3>Honda CR-V</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span>👥</span>
+                                <span>7 Seats</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>⚙️</span>
+                                <span>Auto</span>
+                            </div>
+                        </div>
+                        <div class="vehicle-price">
+                            <div>
+                                <div class="price">GH₵ 450</div>
+                                <div class="price-period">per day</div>
+                            </div>
+                            <button class="rent-btn" onclick="location.href='contact.html'">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Calculator -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="section-intro" style="text-align: center; margin-bottom: 2rem;">
+                <h2>Calculate Your Rental Cost</h2>
+                <p style="opacity: 0.9;">Get an instant estimate for your rental period</p>
+            </div>
+
+            <div class="calculator-container">
+                <div class="calc-row">
+                    <div class="form-group">
+                        <label for="vehicleType">Vehicle Type</label>
+                        <select id="vehicleType" onchange="calculatePrice()"
+                            style="width: 100%; padding: 1rem; background: var(--slate-gray); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white; font-size: 1rem;">
+                            <option value="economy">Economy (GH₵ 150/day)</option>
+                            <option value="standard">Standard (GH₵ 250/day)</option>
+                            <option value="premium">Premium (GH₵ 400/day)</option>
+                            <option value="suv">SUV (GH₵ 500/day)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rentalDays">Number of Days</label>
+                        <input type="number" id="rentalDays" min="1" value="1" onchange="calculatePrice()"
+                            style="width: 100%; padding: 1rem; background: var(--slate-gray); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white; font-size: 1rem;">
+                    </div>
+                </div>
+
+                <div class="calc-result">
+                    <h3>Estimated Total</h3>
+                    <div class="calc-price" id="priceDisplay">GH₵ 150</div>
+                    <p style="margin-top: 1rem; opacity: 0.7;">*Weekly and monthly discounts available</p>
+                </div>
+
+                <a href="contact.html" class="btn btn-primary"
+                    style="width: 100%; margin-top: 2rem; display: block; text-align: center;">Request a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Strip -->
+    <section class="cta-strip">
+        <div class="container">
+            <h2>Ready to hit the road?</h2>
+            <a href="contact.html" class="btn btn-dark">Book Your Rental</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📍</span>
+                        <span class="logo-text">DropPin</span>
+                    </div>
+                    <p class="footer-tagline">Move Smarter. Ride Faster.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="for-drivers.html">For Drivers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Ride-Hailing</a></li>
+                        <li><a href="services.html">Dispatch</a></li>
+                        <li><a href="car-rentals.html">Car Rentals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>📍 Rookies Avenue, Tantra Hill<br>Greater Accra, Ghana</li>
+                        <li>📞 +233 544 066 322</li>
+                        <li>🕘 Monday – Sunday</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DropPin Tech Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

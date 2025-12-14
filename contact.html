@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DropPin Ghana</title>
+    <meta name="description"
+        content="Get in touch with DropPin Ghana. Book a ride, rent a car, or ask us anything. We're here to help 24/7.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .contact-hero {
+            background: var(--gradient-dark);
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-main {
+            padding: 100px 0;
+            background: var(--charcoal-black);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            position: sticky;
+            top: 120px;
+        }
+
+        .info-card {
+            background: var(--slate-gray);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-smooth);
+        }
+
+        .info-card:hover {
+            border-color: var(--electric-yellow);
+            transform: translateY(-5px);
+        }
+
+        .info-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            color: var(--electric-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .info-card p {
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .info-card a {
+            color: var(--pure-white);
+            transition: var(--transition-fast);
+        }
+
+        .info-card a:hover {
+            color: var(--electric-yellow);
+        }
+
+        .contact-form-container {
+            background: var(--slate-gray);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 212, 0, 0.2);
+        }
+
+        .contact-form-container h2 {
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--electric-yellow);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--charcoal-black);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--pure-white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition-fast);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--electric-yellow);
+            box-shadow: 0 0 0 3px rgba(255, 212, 0, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--gradient-yellow);
+            color: var(--charcoal-black);
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-yellow);
+        }
+
+        .quick-actions {
+            background: var(--slate-gray);
+            padding: 100px 0;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .action-card {
+            background: var(--charcoal-black);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .action-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--electric-yellow);
+            box-shadow: var(--shadow-yellow);
+        }
+
+        .action-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .action-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .action-card p {
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact-info {
+                position: static;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">📍</span>
+                <span class="logo-text">DropPin</span>
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="for-drivers.html" class="nav-link">For Drivers</a>
+                <a href="car-rentals.html" class="nav-link">Car Rentals</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>Have questions? Need a ride? Want to partner with us? We're here to help 24/7.</p>
+        </div>
+    </section>
+
+    <!-- Contact Main Section -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="info-card" data-aos="fade-right">
+                        <div class="info-icon">📍</div>
+                        <h3>Visit Us</h3>
+                        <p>
+                            Rookies Avenue, Tantra Hill<br>
+                            Greater Accra, Ghana
+                        </p>
+                    </div>
+
+                    <div class="info-card" data-aos="fade-right" data-aos-delay="100">
+                        <div class="info-icon">📞</div>
+                        <h3>Call Us</h3>
+                        <p>
+                            <a href="tel:+233544066322">+233 544 066 322</a><br>
+                            Available 24/7 for bookings and support
+                        </p>
+                    </div>
+
+                    <div class="info-card" data-aos="fade-right" data-aos-delay="200">
+                        <div class="info-icon">🕘</div>
+                        <h3>Operating Hours</h3>
+                        <p>
+                            Monday – Sunday<br>
+                            24 Hours a Day<br>
+                            We never stop moving!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container" data-aos="fade-left">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+233 XXX XXX XXX">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serviceType">Service Type *</label>
+                            <select id="serviceType" name="serviceType" required>
+                                <option value="">Select a service</option>
+                                <option value="ride-hailing">Ride-Hailing</option>
+                                <option value="dispatch">Dispatch Services</option>
+                                <option value="car-rental">Car Rental</option>
+                                <option value="driver-signup">Driver Sign-Up</option>
+                                <option value="partnership">Partnership Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required
+                                placeholder="Tell us how we can help you..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2>Quick Actions</h2>
+                <p style="opacity: 0.9; margin-top: 1rem;">Choose what you need and get started right away</p>
+            </div>
+
+            <div class="actions-grid">
+                <div class="action-card" data-aos="fade-up">
+                    <div class="action-icon">🚕</div>
+                    <h3>Book a Ride</h3>
+                    <p>Need a ride right now? Call us or use our booking system.</p>
+                    <a href="tel:+233544066322" class="btn btn-primary">Call +233 544 066 322</a>
+                </div>
+
+                <div class="action-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="action-icon">🚗</div>
+                    <h3>Rent a Car</h3>
+                    <p>Browse our fleet and find the perfect vehicle for your journey.</p>
+                    <a href="car-rentals.html" class="btn btn-primary">View Vehicles</a>
+                </div>
+
+                <div class="action-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="action-icon">👨‍✈️</div>
+                    <h3>Become a Driver</h3>
+                    <p>Join our team and start earning on your own schedule.</p>
+                    <a href="for-drivers.html" class="btn btn-primary">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📍</span>
+                        <span class="logo-text">DropPin</span>
+                    </div>
+                    <p class="footer-tagline">Move Smarter. Ride Faster.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="for-drivers.html">For Drivers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Ride-Hailing</a></li>
+                        <li><a href="services.html">Dispatch</a></li>
+                        <li><a href="car-rentals.html">Car Rentals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>📍 Rookies Avenue, Tantra Hill<br>Greater Accra, Ghana</li>
+                        <li>📞 +233 544 066 322</li>
+                        <li>🕘 Monday – Sunday</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DropPin Tech Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

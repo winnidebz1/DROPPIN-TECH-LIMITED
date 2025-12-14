@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive with DropPin - Earn on Your Terms</title>
+    <meta name="description"
+        content="Join DropPin Ghana as a driver. Earn flexibly with competitive rates, smart dispatch, and full support.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .driver-hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .driver-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/driver-hero.jpg') center/cover no-repeat;
+            z-index: -2;
+        }
+
+        .driver-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(14, 14, 14, 0.85) 0%, rgba(31, 31, 31, 0.75) 100%);
+            z-index: -1;
+        }
+
+        .driver-hero-content {
+            padding-top: 100px;
+        }
+
+        .driver-hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .driver-hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        .why-drive {
+            background: var(--charcoal-black);
+            padding: 100px 0;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-intro h2 {
+            margin-bottom: 1rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .benefit-card {
+            background: var(--slate-gray);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--electric-yellow);
+            box-shadow: var(--shadow-yellow);
+        }
+
+        .benefit-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--electric-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            opacity: 0.9;
+        }
+
+        .how-to-join {
+            background: var(--slate-gray);
+            padding: 100px 0;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .join-step {
+            background: var(--charcoal-black);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-badge {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--charcoal-black);
+            font-size: 1.25rem;
+        }
+
+        .join-step h3 {
+            margin: 1.5rem 0 1rem;
+        }
+
+        .requirements {
+            background: var(--charcoal-black);
+            padding: 100px 0;
+        }
+
+        .requirements-list {
+            max-width: 700px;
+            margin: 3rem auto 0;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: var(--slate-gray);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            transition: var(--transition-smooth);
+        }
+
+        .requirement-item:hover {
+            transform: translateX(10px);
+            border-left: 4px solid var(--electric-yellow);
+        }
+
+        .requirement-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .requirement-text {
+            flex: 1;
+        }
+
+        .requirement-text h4 {
+            margin-bottom: 0.25rem;
+            color: var(--electric-yellow);
+        }
+
+        .driver-signup {
+            background: var(--slate-gray);
+            padding: 100px 0;
+        }
+
+        .signup-form-container {
+            max-width: 700px;
+            margin: 3rem auto 0;
+            background: var(--charcoal-black);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 212, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--electric-yellow);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--slate-gray);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--pure-white);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition-fast);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--electric-yellow);
+            box-shadow: 0 0 0 3px rgba(255, 212, 0, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--gradient-yellow);
+            color: var(--charcoal-black);
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-yellow);
+        }
+
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--gradient-yellow);
+            padding: 1rem;
+            text-align: center;
+            z-index: 999;
+            display: none;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .sticky-cta.show {
+            display: block;
+        }
+
+        .sticky-cta .btn {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .driver-hero {
+                min-height: 80vh;
+            }
+
+            .signup-form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .sticky-cta {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">📍</span>
+                <span class="logo-text">DropPin</span>
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="for-drivers.html" class="nav-link active">For Drivers</a>
+                <a href="car-rentals.html" class="nav-link">Car Rentals</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="driver-hero">
+        <div class="driver-hero-bg"></div>
+        <div class="driver-hero-overlay"></div>
+        <div class="container driver-hero-content">
+            <h1 data-aos="fade-up">Drive. Earn. Move on Your Own Terms.</h1>
+            <p class="driver-hero-subtitle" data-aos="fade-up" data-aos-delay="100">Join DropPin Ghana and earn flexibly
+                with reliable ride requests and fast payouts.</p>
+            <a href="#apply" class="btn btn-primary" data-aos="fade-up" data-aos-delay="200">Become a DropPin Driver</a>
+        </div>
+    </section>
+
+    <!-- Why Drive With DropPin -->
+    <section class="why-drive">
+        <div class="container">
+            <div class="section-intro">
+                <h2>Why Drive With DropPin</h2>
+                <p>Join hundreds of drivers earning on their own schedule with Ghana's fastest-growing mobility
+                    platform.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Competitive Earnings</h3>
+                    <p>Earn more with our fair commission structure and surge pricing during peak hours.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-icon">⏱</div>
+                    <h3>Flexible Hours</h3>
+                    <p>Drive when you want. Full-time, part-time, or just weekends - you're in control.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon">📱</div>
+                    <h3>Smart Dispatch</h3>
+                    <p>Our intelligent system connects you with nearby riders for maximum efficiency.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-icon">🛡</div>
+                    <h3>Driver Support</h3>
+                    <p>24/7 support team, insurance coverage, and safety features to protect you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Join -->
+    <section class="how-to-join">
+        <div class="container">
+            <div class="section-intro">
+                <h2>How It Works</h2>
+                <p>Start earning in just 4 simple steps</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="join-step" data-aos="fade-up" data-aos-delay="0">
+                    <div class="step-badge">1</div>
+                    <h3>Sign Up Online</h3>
+                    <p>Fill out our simple application form with your details and vehicle information.</p>
+                </div>
+
+                <div class="join-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-badge">2</div>
+                    <h3>Get Verified</h3>
+                    <p>Submit your documents for quick verification. We'll review within 24-48 hours.</p>
+                </div>
+
+                <div class="join-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-badge">3</div>
+                    <h3>Go Online</h3>
+                    <p>Download the driver app, complete orientation, and start accepting rides.</p>
+                </div>
+
+                <div class="join-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-badge">4</div>
+                    <h3>Get Paid</h3>
+                    <p>Earn money with every trip. Fast, reliable payouts directly to your account.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements -->
+    <section class="requirements">
+        <div class="container">
+            <div class="section-intro">
+                <h2>Driver Requirements</h2>
+                <p>Make sure you meet these basic requirements to drive with DropPin</p>
+            </div>
+
+            <div class="requirements-list">
+                <div class="requirement-item" data-aos="fade-right" data-aos-delay="0">
+                    <div class="requirement-icon">📄</div>
+                    <div class="requirement-text">
+                        <h4>Valid Driver's License</h4>
+                        <p>Must have a valid Ghanaian driver's license</p>
+                    </div>
+                </div>
+
+                <div class="requirement-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="requirement-icon">🚗</div>
+                    <div class="requirement-text">
+                        <h4>Roadworthy Vehicle</h4>
+                        <p>Clean, well-maintained car with valid insurance and roadworthy certificate</p>
+                    </div>
+                </div>
+
+                <div class="requirement-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="requirement-icon">📱</div>
+                    <div class="requirement-text">
+                        <h4>Smartphone</h4>
+                        <p>Android or iOS device to run the DropPin driver app</p>
+                    </div>
+                </div>
+
+                <div class="requirement-item" data-aos="fade-right" data-aos-delay="300">
+                    <div class="requirement-icon">🗺</div>
+                    <div class="requirement-text">
+                        <h4>Route Knowledge</h4>
+                        <p>Good knowledge of Accra routes and major landmarks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Driver Signup Form -->
+    <section class="driver-signup" id="apply">
+        <div class="container">
+            <div class="section-intro">
+                <h2>Ready to Start Earning?</h2>
+                <p>Fill out the form below and we'll get back to you within 24 hours</p>
+            </div>
+
+            <div class="signup-form-container">
+                <form id="driverSignupForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+233 XXX XXX XXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vehicleType">Vehicle Type *</label>
+                        <select id="vehicleType" name="vehicleType" required>
+                            <option value="">Select vehicle type</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="suv">SUV</option>
+                            <option value="hatchback">Hatchback</option>
+                            <option value="van">Van/Minibus</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location in Accra *</label>
+                        <input type="text" id="location" name="location" required
+                            placeholder="e.g., East Legon, Tema, Madina">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" name="message"
+                            placeholder="Tell us about your driving experience, availability, or any questions you have..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Apply Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky CTA (Mobile) -->
+    <div class="sticky-cta" id="stickyCta">
+        <a href="#apply" class="btn btn-dark">Apply to Drive with DropPin</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📍</span>
+                        <span class="logo-text">DropPin</span>
+                    </div>
+                    <p class="footer-tagline">Move Smarter. Ride Faster.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="for-drivers.html">For Drivers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Ride-Hailing</a></li>
+                        <li><a href="services.html">Dispatch</a></li>
+                        <li><a href="car-rentals.html">Car Rentals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>📍 Rookies Avenue, Tantra Hill<br>Greater Accra, Ghana</li>
+                        <li>📞 +233 544 066 322</li>
+                        <li>🕘 Monday – Sunday</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DropPin Tech Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Show sticky CTA on scroll (mobile)
+        window.addEventListener('scroll', () => {
+            const stickyCta = document.getElementById('stickyCta');
+            if (window.scrollY > 500) {
+                stickyCta.classList.add('show');
+            } else {
+                stickyCta.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+
+</html>
